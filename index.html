@@ -18,15 +18,49 @@
         </header>
         <main>
             <figure>
-                <img v-bind:src="product.image">
+                <img v-bind:src="lesson.image">
             </figure>
-            <h2 v-text="product.title"></h2>
-            <p v-text="product.location"></p>
-            <p>PRICE:{{product.price}}</p>
-            <p>NUMBER OF SPACES: {{product.availableInventory - cartItemCount}}</p>
+            <h2 v-text="lesson.title"></h2>
+            <p v-text="lesson.location"></p>
+            <p>PRICE:{{lesson.price}}</p>
+            <p>NUMBER OF SPACES: {{lesson.availableInventory - cartItemCount}}</p>
             <button v-on:click='addToCart' v-if='canAddToCart'>Add to cart</button>
             <button disabled="disabled" v-else>Add to cart</button>
         </main>
     </div>
+
+    <script type="text/javascript">
+        var webstore = new Vue({
+            el: '#app',
+            data: {
+                sitename:'AFTER SCHOOL CLUB',
+                lesson: {
+                    id: 0001,
+                    title: "CHEMISTRY",
+                    location: "ABUJA",
+                    price: 5000,
+                    availableInventory: 5,
+                    image:"images/chemistry.jfif"
+                    },
+                    cart:[],
+                    showProduct: true
+            },
+            methods: {
+                addToCart() {
+                    this.cart.push(this.lesson.id);
+                },
+                
+            },
+            computed: {
+                cartItemCount() {
+                    return this.cart.length || '';
+                },
+                canAddToCart: function() {
+                    return this.lesson.availableInventory > this.cartItemCount;
+                }
+            },
+           
+        })
+    </script>
 </body>
 </html>
