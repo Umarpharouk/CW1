@@ -22,7 +22,7 @@
             </figure>
             <h2 v-text="lesson.title"></h2>
             <p v-text="lesson.location"></p>
-            <p>PRICE:{{lesson.price}}</p>
+            <p>PRICE:${{lesson.price}}</p>
             <p>NUMBER OF SPACES: {{lesson.availableInventory - cartItemCount}}</p>
             <button v-on:click='addToCart' v-if='canAddToCart'>Add to cart</button>
             <button disabled="disabled" v-else>Add to cart</button>
@@ -36,11 +36,11 @@
                 sitename:'AFTER SCHOOL CLUB',
                 lesson: {
                     id: 0001,
-                    title: "CHEMISTRY",
-                    location: "ABUJA",
+                    title: "Arabic language",
+                    location: "Dubai",
                     price: 5000,
                     availableInventory: 5,
-                    image:"images/chemistry.jfif"
+                    image:"image/arabic.jfif"
                     },
                     cart:[],
                     showProduct: true
