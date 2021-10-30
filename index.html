@@ -8,9 +8,25 @@
     <script src="https://unpkg.com/vue"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
+
     <title>cw1</title>
 </head>
 <body>
-    <h1>r</h1>
+    <div id="app">
+        <header>
+            <h1 v-text="sitename"></h1>
+        </header>
+        <main>
+            <figure>
+                <img v-bind:src="product.image">
+            </figure>
+            <h2 v-text="product.title"></h2>
+            <p v-text="product.location"></p>
+            <p>PRICE:{{product.price}}</p>
+            <p>NUMBER OF SPACES: {{product.availableInventory - cartItemCount}}</p>
+            <button v-on:click='addToCart' v-if='canAddToCart'>Add to cart</button>
+            <button disabled="disabled" v-else>Add to cart</button>
+        </main>
+    </div>
 </body>
 </html>
