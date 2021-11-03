@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    //  VUE JS LINK
+    <!-- vue js link-->
     <script src="https://unpkg.com/vue"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
@@ -12,6 +12,7 @@
     <title>cw1</title>
 </head>
 <body>
+    <!--Div for mounting vue js element-->
     <div id="app">
         <header>
             <h1 v-text="sitename"></h1>
@@ -31,7 +32,8 @@
 
     <script type="text/javascript">
         var webstore = new Vue({
-            el: '#app',
+            //The <div> ID will be used to link to the Vue.js code 
+            el: '#app',  
             data: {
                 sitename:'AFTER SCHOOL CLUB',
                 lesson: {
@@ -46,15 +48,18 @@
                     showProduct: true
             },
             methods: {
+                // the method has a function for adding the lesson to the cart
                 addToCart() {
                     this.cart.push(this.lesson.id);
                 },
                 
             },
             computed: {
+                // counts the space length of the element.
                 cartItemCount() {
                     return this.cart.length || '';
                 },
+                //  checks wether if the comdition is true or false, if the condition is true it will add the item to the cart.
                 canAddToCart: function() {
                     return this.lesson.availableInventory > this.cartItemCount;
                 }
